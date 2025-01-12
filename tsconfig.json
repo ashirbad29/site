@@ -22,6 +22,8 @@
     // Report an error for unused labels instead of just a warning.
     "allowUnusedLabels": false,
     // Disallow JavaScript files from being imported
-    "allowJs": false
+    "allowJs": false,
+    "baseUrl": ".",
+    "skipLibCheck": true
   }
 }
