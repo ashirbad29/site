@@ -1,25 +1,9 @@
 ---
 import Layout from "src/Layouts/PageLayout.astro";
-import { HOME_TITLE, HOME_DESCRIPTION, NAV_ITEMS, SOCIAL_LINKS, RECENT_POSTS } from "src/constants";
+import { HOME_TITLE, HOME_DESCRIPTION, SOCIAL_LINKS, RECENT_POSTS } from "src/constants";
 ---
 
 <Layout pageTitle={HOME_TITLE} description={HOME_DESCRIPTION}>
-  <main class="mx-auto max-w-2xl px-6 py-12">
-    <!-- Navigation -->
-    <nav class="flex justify-center gap-6 mb-12">
-      {NAV_ITEMS.map((item) => (
-        <a
-          href={item.href}
-          class={`text-sm transition-all ${
-            item.active
-              ? "text-purple-600 font-medium"
-              : "text-gray-600 hover:text-gray-900 hover:underline"
-          }`}
-        >
-          {item.label}
-        </a>
-      ))}
-    </nav>
 
     <!-- Name Heading -->
     <h1 class="font-heading text-3xl font-bold mb-6 text-gray-900">Ashirbad</h1>
@@ -76,5 +60,4 @@ import { HOME_TITLE, HOME_DESCRIPTION, NAV_ITEMS, SOCIAL_LINKS, RECENT_POSTS } f
         ))}
       </ul>
     </section>
-  </main>
 </Layout>

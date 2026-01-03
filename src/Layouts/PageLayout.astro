@@ -1,5 +1,6 @@
 ---
 import "src/styles/global.css";
+import { NAV_ITEMS } from "src/constants";
 
 type Props = {
   pageTitle: string;
@@ -19,6 +20,22 @@ const { pageTitle, description } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <slot />
+    <main class="mx-auto max-w-2xl px-6 py-12">
+      <nav class="flex justify-center gap-6 mb-12">
+      {NAV_ITEMS.map((item) => (
+        <a
+          href={item.href}
+          class={`text-sm transition-all ${
+            item.active
+              ? "text-purple-600 font-medium"
+              : "text-gray-600 hover:text-gray-900 hover:underline"
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+      </nav>
+      <slot />
+    </main>
   </body>
 </html>
