@@ -2,7 +2,7 @@ export const HOME_TITLE = "Ashirbad – Home"
 export const HOME_DESCRIPTION = "Personal website of Ashirbad Behera, a software engineer"
 
 export const NAV_ITEMS = [
-  { label: "Index", href: "/", active: true },
+  { label: "Index", href: "/" },
   // { label: "About", href: "#" },
   { label: "Blog", href: "#" },
   { label: "Work", href: "#" },

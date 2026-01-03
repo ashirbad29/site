@@ -8,6 +8,13 @@ type Props = {
 };
 
 const { pageTitle, description } = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const isActive = (href: string) => {
+  const normalizedHref = href.replace(/\/$/, '') || '/';
+  return currentPath === normalizedHref;
+};
 ---
 
 <html lang="en">
@@ -26,7 +33,7 @@ const { pageTitle, description } = Astro.props;
         <a
           href={item.href}
           class={`text-sm transition-all ${
-            item.active
+            isActive(item.href)
               ? "text-purple-600 font-medium"
               : "text-gray-600 hover:text-gray-900 hover:underline"
           }`}
