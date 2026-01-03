@@ -1,15 +1,80 @@
 ---
 import Layout from "src/Layouts/PageLayout.astro";
-import { HOME_TITLE, HOME_DESCRIPTION } from "src/constants";
+import { HOME_TITLE, HOME_DESCRIPTION, NAV_ITEMS, SOCIAL_LINKS, RECENT_POSTS } from "src/constants";
 ---
 
 <Layout pageTitle={HOME_TITLE} description={HOME_DESCRIPTION}>
-  <main class="mx-auto max-w-2xl border-2 py-14" > 
-    <header>
-      <div>Ashirbad</div>
-      <nav>
-        <a>Blog Posts</a>
-      </nav>
-    </header>
+  <main class="mx-auto max-w-2xl px-6 py-12">
+    <!-- Navigation -->
+    <nav class="flex justify-center gap-6 mb-12">
+      {NAV_ITEMS.map((item) => (
+        <a
+          href={item.href}
+          class={`text-sm transition-all ${
+            item.active
+              ? "text-purple-600 font-medium"
+              : "text-gray-600 hover:text-gray-900 hover:underline"
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Name Heading -->
+    <h1 class="text-3xl font-bold mb-6 text-gray-900">Ashirbad</h1>
+
+    <!-- About Section -->
+    <div class="mb-8 space-y-4 text-gray-700 leading-relaxed">
+      <p>
+        Hello, I'm Ashirbad - a software engineer currently working in frontend and learning my way around backend engineering.
+      </p>
+      <p>
+        Outside of code, I'm into reading, traveling, and anime.
+      </p>
+      <p>
+        This is my personal space on the internet. This website doesn't have any particular theme to it - I built this to share my thoughts and learnings as I fumble through life and career.
+      </p>
+      <p>
+        I'm always open for a conversation or random chit-chat. feel free to message me on <a href="#" class="text-blue-600 hover:underline">discord</a>, <a href="#" class="text-blue-600 hover:underline">twitter</a>, <a href="#" class="text-blue-600 hover:underline">linkedin</a>, or shoot me an email at <a href="mailto:ashirbadbehera29@gmail.com" class="text-blue-600 hover:underline">ashirbadbehera29@gmail.com</a>.
+      </p>
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex gap-3 mb-12">
+      {SOCIAL_LINKS.map((social) => (
+        <a
+          href={social.href}
+          class="flex items-center gap-2 px-3 py-1.5 rounded-md border border-gray-200 bg-gray-50 text-gray-700 hover:bg-gray-100 transition-colors"
+        >
+          {social.icon === "code" && (
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          )}
+          {social.icon === "rss" && (
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z" />
+            </svg>
+          )}
+          <span class="text-sm">{social.label}</span>
+        </a>
+      ))}
+    </div>
+
+    <!-- Recent Posts Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6 text-gray-900">Recent Posts</h2>
+      <ul class="space-y-3">
+        {RECENT_POSTS.map((post) => (
+          <li class="flex justify-between items-center">
+            <a href="#" class="text-gray-700 hover:text-blue-600 hover:underline">
+              {post.title}
+            </a>
+            <span class="text-sm text-gray-500">{post.date}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
   </main>
 </Layout>
