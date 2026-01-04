@@ -45,6 +45,7 @@ const isActive = (href: string) => {
 				{
 					NAV_ITEMS.map(item => (
 						<Link
+							noStyles
 							href={item.href}
 							class={`text-sm transition-all ${
 								isActive(item.href)

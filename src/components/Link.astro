@@ -2,9 +2,10 @@
 interface Props {
 	href: string;
 	class?: string;
+	noStyles?: boolean;
 }
 
-const { href, class: className = '' } = Astro.props;
+const { href, class: className = '', noStyles = false } = Astro.props;
 
 const isExternal =
 	href.startsWith('http') ||
@@ -16,10 +17,8 @@ const externalAttrs = isExternal
 	: {};
 
 // Base link styling - can be overridden with custom classes
-const baseClasses = 'text-blue-600 hover:underline transition-colors';
+const baseClasses = noStyles ? '' : 'text-blue-600 underline transition-colors';
 const finalClasses = `${baseClasses} ${className}`.trim();
 ---
 
-<a href={href} class={finalClasses} {...externalAttrs}>
-	<slot />
-</a>
+<a href={href} class={finalClasses} {...externalAttrs}><slot /></a>

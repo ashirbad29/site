@@ -5,8 +5,8 @@ export const HOME_DESCRIPTION =
 export const NAV_ITEMS = [
 	{ label: 'Index', href: '/' },
 	// { label: "About", href: "#" },
-	{ label: 'Blog', href: '#' },
-	{ label: 'Work', href: '#' },
+	{ label: 'Blog', href: '/blog' },
+	// { label: 'Work', href: '#' },
 	// { label: "Now", href: "#" },
 ];
 
