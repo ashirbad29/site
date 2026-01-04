@@ -1,6 +1,4 @@
 {
-  "cSpell.words": [
-    "astro",
-    "tailwindcss"
-  ]
+	"cSpell.words": ["astro", "tailwindcss"],
+	"editor.formatOnSave": true
 }

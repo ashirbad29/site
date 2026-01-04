@@ -1,10 +1,11 @@
 ---
-import "src/styles/global.css";
-import { NAV_ITEMS } from "src/constants";
+import 'src/styles/global.css';
+import { NAV_ITEMS } from 'src/constants';
+import Link from 'src/components/Link.astro';
 
 type Props = {
-  pageTitle: string;
-  description: string;
+	pageTitle: string;
+	description: string;
 };
 
 const { pageTitle, description } = Astro.props;
@@ -12,37 +13,51 @@ const { pageTitle, description } = Astro.props;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 const isActive = (href: string) => {
-  const normalizedHref = href.replace(/\/$/, '') || '/';
-  return currentPath === normalizedHref;
+	const normalizedHref = href.replace(/\/$/, '') || '/';
+	return currentPath === normalizedHref;
 };
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content={description}>
-    <link rel="preload" href="/fonts/CabinetGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <main class="mx-auto max-w-2xl px-6 py-12">
-      <nav class="flex justify-center gap-6 mb-12">
-      {NAV_ITEMS.map((item) => (
-        <a
-          href={item.href}
-          class={`text-sm transition-all ${
-            isActive(item.href)
-              ? "text-purple-600 font-medium"
-              : "text-gray-600 hover:text-gray-900 hover:underline"
-          }`}
-        >
-          {item.label}
-        </a>
-      ))}
-      </nav>
-      <slot />
-    </main>
-  </body>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<meta name='description' content={description} />
+		<link
+			rel='preload'
+			href='/fonts/CabinetGrotesk-Variable.woff2'
+			as='font'
+			type='font/woff2'
+			crossorigin='anonymous'
+		/>
+		<link
+			rel='preload'
+			href='/fonts/InterVariable.woff2'
+			as='font'
+			type='font/woff2'
+			crossorigin='anonymous'
+		/>
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<main class='mx-auto max-w-2xl px-6 py-12'>
+			<nav class='flex justify-center gap-6 mb-12'>
+				{
+					NAV_ITEMS.map(item => (
+						<Link
+							href={item.href}
+							class={`text-sm transition-all ${
+								isActive(item.href)
+									? 'text-purple-600 font-medium'
+									: 'text-gray-600 hover:text-gray-900 hover:underline'
+							}`}
+						>
+							{item.label}
+						</Link>
+					))
+				}
+			</nav>
+			<slot />
+		</main>
+	</body>
 </html>
