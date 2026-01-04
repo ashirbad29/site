@@ -2,7 +2,7 @@
 import Link from 'src/components/Link.astro';
 
 type Props = {
-	posts: Array<{ title: string; date: string }>;
+	posts: Array<{ title: string; date: string; slug?: string }>;
 };
 
 const { posts } = Astro.props;
@@ -12,7 +12,10 @@ const { posts } = Astro.props;
 	{
 		posts.map(post => (
 			<li class='flex justify-between items-center'>
-				<Link href='#' class='text-gray-700'>
+				<Link
+					href={post.slug ? `/blog/${post.slug}` : '#'}
+					class='text-gray-700'
+				>
 					{post.title}
 				</Link>
 				<span class='text-sm text-gray-500'>{post.date}</span>

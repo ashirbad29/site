@@ -4,10 +4,7 @@ export const HOME_DESCRIPTION =
 
 export const NAV_ITEMS = [
 	{ label: 'Index', href: '/' },
-	// { label: "About", href: "#" },
 	{ label: 'Blog', href: '/blog' },
-	// { label: 'Work', href: '#' },
-	// { label: "Now", href: "#" },
 ];
 
 export const SOCIALS = {
@@ -17,9 +14,3 @@ export const SOCIALS = {
 	email: 'ashirbadbehera29@gmail.com',
 	aniList: 'https://anilist.co/user/ashirbad29/animelist',
 };
-
-export const RECENT_POSTS = [
-	{ title: 'Getting started with Astro', date: 'Dec 2024' },
-	{ title: 'Building a personal blog', date: 'Nov 2024' },
-	{ title: 'Minimal design principles', date: 'Oct 2024' },
-];
