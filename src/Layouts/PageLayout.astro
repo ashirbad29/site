@@ -43,7 +43,19 @@ const isActive = (href: string) => {
 		<link rel='icon' href='/favicon.svg' type='image/svg+xml' />
 		<link rel='icon' href='/favicon.png' type='image/png' sizes='32x32' />
 		<link rel='canonical' href={canonicalUrl} />
+
 		<title>{pageTitle}</title>
+
+		<meta property='og:title' content={pageTitle} />
+		<meta property='og:description' content={description} />
+		<meta property='og:url' content={canonicalUrl} />
+		<meta property='og:type' content='website' />
+		<meta property='og:image' content={`${baseUrl}/favicon.png`} />
+
+		<script
+			data-goatcounter='https://indecember.goatcounter.com/count'
+			async
+			src='//gc.zgo.at/count.js'></script>
 	</head>
 	<body>
 		<main class='mx-auto max-w-2xl px-6 py-12'>
