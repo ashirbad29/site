@@ -12,6 +12,9 @@ const { pageTitle, description } = Astro.props;
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
+const baseUrl = Astro.site ? new URL(Astro.site).origin : Astro.url.origin;
+const canonicalUrl = `${baseUrl}${currentPath}`;
+
 const isActive = (href: string) => {
 	const normalizedHref = href.replace(/\/$/, '') || '/';
 	return currentPath === normalizedHref;
@@ -39,6 +42,7 @@ const isActive = (href: string) => {
 		/>
 		<link rel='icon' href='/favicon.svg' type='image/svg+xml' />
 		<link rel='icon' href='/favicon.png' type='image/png' sizes='32x32' />
+		<link rel='canonical' href={canonicalUrl} />
 		<title>{pageTitle}</title>
 	</head>
 	<body>
